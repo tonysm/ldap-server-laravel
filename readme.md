@@ -8,6 +8,7 @@ With this example application, you are able to create an LDAP server, and use it
 * Run `cp .env.example .env`
 * Create the database and configure your `.env` file to use it
 * Run `php artisan key:generate` and `php artisan migrate`
+* Install the assets and compile them `yarn && yarn dev`
 * Start your LDAP server using `php artisan ldap:serve` (this will give you the host and port to connect to)
 * Start your Laravel serve `php artisan serve`
 * Register on it, and use the form inside the application to  test what comes back from the LDAP, try creating other users and authenticating.
