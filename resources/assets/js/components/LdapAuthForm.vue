@@ -70,6 +70,17 @@
                                     <strong>Yes!</strong> You are now authenticated. <a href @click.prevent="authenticated = false">(try another credential)</a>
                                 </div>
                             </div>
+
+                            <div class="col-md-8 offset-md-2" v-if="user">
+                                <dl>
+                                    <dt>CN</dt>
+                                    <dd>{{ user.cn }}</dd>
+                                    <dt>SN</dt>
+                                    <dd>{{ user.sn }}</dd>
+                                    <dt>Full Name</dt>
+                                    <dd>{{ user.fullName}}</dd>
+                                </dl>
+                            </div>
                         </div>
 
                     </div>
@@ -95,6 +106,7 @@
                 error: null,
                 status: STATUSES.DONE,
                 authenticated: false,
+                user: null,
             }
         },
         computed: {
@@ -116,6 +128,7 @@
                     .then(({data}) => {
                         this.status = STATUSES.DONE;
                         this.authenticated = true;
+                        this.user = data.user;
                     })
                     .catch((error) => {
                         this.status = STATUSES.DONE;

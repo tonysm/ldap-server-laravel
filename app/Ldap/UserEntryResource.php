@@ -20,7 +20,7 @@ class UserEntryResource
         return Entry::create("cn={$commonName},dc={$organizationalUnit},dc={$domainComponent}", [
             'cn' => $commonName,
             'sn' => collect(explode(' ', $user->name))->last(),
-            'givenName' => $commonName,
+            'fullName' => $user->name,
         ]);
     }
 }
