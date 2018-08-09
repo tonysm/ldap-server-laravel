@@ -97,11 +97,12 @@
     };
 
     export default {
+        props: ['initialServer', 'initialPort', 'initialEmail'],
         data () {
             return {
-                server: '0.0.0.0',
-                port: '33389',
-                email: 'tony@madewithlove.be',
+                server: this.initialServer,
+                port: this.initialPort,
+                email: this.initialEmail,
                 password: '',
                 error: null,
                 status: STATUSES.DONE,
